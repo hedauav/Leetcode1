@@ -4,21 +4,20 @@ public:
         int n=height.size();
         int left=0;
         int right=n-1;
-        int maxiarea=0;
-    
-       while(left<right){
-            int h=min(height[left],height[right]);
-            int width = right - left;
-            int currArea= h * width;
-            maxiarea= max(maxiarea,currArea);
-            if(height[left] < height[right]){
+        int maxi=0;
+        int ans=0;
+        while(left<right){
+            int miniheight=min(height[left],height[right]);
+            int width=right-left;
+            int currarea=width*miniheight;
+            ans=max(currarea,ans);
+            if(height[left]<height[right]){
                 left++;
             }
-            else{
+            else {
                 right--;
             }
         }
-
-        return maxiarea;
+        return ans;
     }
 };
