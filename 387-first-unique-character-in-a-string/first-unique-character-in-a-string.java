@@ -1,17 +1,17 @@
 class Solution {
     public int firstUniqChar(String s) {
-        HashMap<Character,Integer> check= new HashMap();
+        int[] freq=new int[26];
 
         for(int i=0;i<s.length();i++){
             char ch = s.charAt(i);
-            check.put(ch,check.getOrDefault(ch,0)+1);
-        }
+            freq[ch -'a']++;
+        } 
 
         for(int i=0;i<s.length();i++){
-            if (check.get(s.charAt(i)) == 1){
+             char ch = s.charAt(i);
+            if(freq[ch-'a']==1){
                 return i;
             }
-
         }
         return -1;
     }
